@@ -363,9 +363,10 @@ MonoBehaviour:
   moveSpeed: 100
   movement: {x: 0, y: 0}
   bodyRotationSpeed: 100
-  turret: {fileID: 5996392632791766670}
+  turretTransform: {fileID: 5996392632791766670}
   turretRotationSpeed: 150
   mousePosition: {x: 0, y: 0}
+  turret: {fileID: 5996392632791766670}
 --- !u!70 &5320221328089095784
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -548,7 +549,7 @@ Transform:
   m_GameObject: {fileID: 6791669737393710858}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.277, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -597,6 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6509276101683140148}
   - component: {fileID: 6688205119252733231}
+  - component: {fileID: 3402984397834944244}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -672,3 +674,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3402984397834944244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254280855673695887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965227264552f5a428493918245b5766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretBarrel: {fileID: 5491305804137689523}
+  bullet: {fileID: 1101669513203777735, guid: 99a260dbb3ff8284a8a4c7cf15a3a27b, type: 3}
+  reloadDelay: 1
+  currentDelay: 0

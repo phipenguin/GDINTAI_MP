@@ -12,19 +12,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 movement;
     public float bodyRotationSpeed = 5.0f;
 
-    [Header("Player Shooting")] [SerializeField]
-    private Transform turret;
+    [Header("Player Aiming")]
+    public Transform turretTransform;
     public float turretRotationSpeed = 5.0f;
     [SerializeField] private Vector2 mousePosition;
+
+    public TurretBehavior turret;
 
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+
+        if (turret == null)
+        {
+            turret = GetComponentInChildren<TurretBehavior>();
+        }
     }
 
     public void HandleShoot()
     {
-        Debug.Log("Shooting");
+        turret.Shoot();
     }
 
     public void HandleMoveBody(Vector2 movementVector)
@@ -37,7 +44,7 @@ public class PlayerController : MonoBehaviour
         var turretDirection = (Vector3)pointerPosition - transform.position;
         float angle = Mathf.Atan2(turretDirection.y, turretDirection.x) * Mathf.Rad2Deg - 90.0f;
         float turretRotate = turretRotationSpeed * Time.fixedDeltaTime;
-        turret.rotation = Quaternion.RotateTowards(turret.rotation, Quaternion.Euler(0, 0, angle), turretRotate);
+        turretTransform.rotation = Quaternion.RotateTowards(turretTransform.rotation, Quaternion.Euler(0, 0, angle), turretRotate);
     }
 
     void FixedUpdate()
