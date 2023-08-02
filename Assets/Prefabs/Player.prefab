@@ -190,7 +190,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4b868481ca88c4d46a53636109f494a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd90a33065041f34ab0f2f0c652f6d05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 2003194073176716327}
   - component: {fileID: 2254540448818785168}
   - component: {fileID: 5320221328089095784}
+  - component: {fileID: 4600151283529179660}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -360,13 +361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e1effbd1af58b4a8987f5cb0969284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
-  movement: {x: 0, y: 0}
-  bodyRotationSpeed: 100
-  turretTransform: {fileID: 5996392632791766670}
-  turretRotationSpeed: 150
-  mousePosition: {x: 0, y: 0}
-  turret: {fileID: 5996392632791766670}
+  tankMovement: {fileID: 0}
+  turretAim: {fileID: 0}
+  turretBehavior: {fileID: 0}
 --- !u!70 &5320221328089095784
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -400,8 +397,37 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.8, y: 2.5}
+  m_Size: {x: 1.8, y: 2}
   m_Direction: 0
+--- !u!114 &4600151283529179660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290138733738845127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d9a71664209854f8239f370ee66436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1
+  currentHP: 0
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6050671706501026996}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5140911678226367007
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5996392632791766670}
+  - component: {fileID: 8047129623751985423}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -434,6 +461,19 @@ Transform:
   - {fileID: 6509276101683140148}
   m_Father: {fileID: 3398053666043750588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8047129623751985423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140911678226367007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b092bcb1933874b4f83a797d89ea2319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretRotationSpeed: 150
 --- !u!1 &6050671706501026996
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9059882914064376565}
+  - component: {fileID: 2637302322653994870}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -588,6 +629,21 @@ Transform:
   - {fileID: 7402259576770876045}
   m_Father: {fileID: 3398053666043750588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2637302322653994870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221972771512863983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763376b09b6e84142b7d79bb0f5cd0e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 100
+  bodyRotationSpeed: 150
+  movement: {x: 0, y: 0}
 --- !u!1 &8254280855673695887
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +719,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d2db309bfc6c4f74bb0b47d727925b04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64622a79a555d5947b7241c619ff9f09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
