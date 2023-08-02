@@ -416,10 +416,10 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6050671706501026996}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5360927992258086726}
+        m_TargetAssemblyTypeName: DestroyUtil, Assembly-CSharp
+        m_MethodName: DestroyHelper
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -484,6 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8621292607602112805}
   - component: {fileID: 7637936578951269820}
+  - component: {fileID: 5360927992258086726}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -564,6 +565,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5360927992258086726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050671706501026996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32619ef546276e24d870dc31c2d472cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6791669737393710858
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +668,7 @@ GameObject:
   - component: {fileID: 6509276101683140148}
   - component: {fileID: 6688205119252733231}
   - component: {fileID: 3402984397834944244}
+  - component: {fileID: 4829335019495268228}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -746,3 +760,19 @@ MonoBehaviour:
   bullet: {fileID: 1101669513203777735, guid: 99a260dbb3ff8284a8a4c7cf15a3a27b, type: 3}
   reloadDelay: 1
   currentDelay: 0
+  bulletPoolCount: 10
+--- !u!114 &4829335019495268228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254280855673695887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff53b15a1b0b184ca12bdd3a4b624a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 0}
+  poolSize: 10
+  spawnedObjectsParent: {fileID: 0}

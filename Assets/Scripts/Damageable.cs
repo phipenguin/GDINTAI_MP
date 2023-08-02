@@ -18,7 +18,7 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    public UnityEvent OnHit;
+    public UnityEvent OnHit, OnDead;
 
     // Start is called before the first frame update
     void Start()

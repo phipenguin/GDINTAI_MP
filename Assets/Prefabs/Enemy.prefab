@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5759606013159313655}
+  - component: {fileID: 3413223712162116097}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -116,6 +117,18 @@ Transform:
   - {fileID: 5954262685776522279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3413223712162116097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158037969556083016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32619ef546276e24d870dc31c2d472cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2225488147324356795
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +217,7 @@ GameObject:
   - component: {fileID: 3929417034383767237}
   - component: {fileID: 4984141709918132765}
   - component: {fileID: 7694932095252978072}
+  - component: {fileID: 3210758065508160451}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -295,6 +309,22 @@ MonoBehaviour:
   bullet: {fileID: 1101669513203777735, guid: 99a260dbb3ff8284a8a4c7cf15a3a27b, type: 3}
   reloadDelay: 1
   currentDelay: 0
+  bulletPoolCount: 10
+--- !u!114 &3210758065508160451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660853087885215394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff53b15a1b0b184ca12bdd3a4b624a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 0}
+  poolSize: 10
+  spawnedObjectsParent: {fileID: 0}
 --- !u!1 &7049453324564630519
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,10 +690,10 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2158037969556083016}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 3413223712162116097}
+        m_TargetAssemblyTypeName: DestroyUtil, Assembly-CSharp
+        m_MethodName: DestroyHelper
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
