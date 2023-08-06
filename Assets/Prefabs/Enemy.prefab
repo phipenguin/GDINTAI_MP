@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 2616668779933391970}
   - component: {fileID: 5838158770256605252}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: EnemyTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,3 +702,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDead:
+    m_PersistentCalls:
+      m_Calls: []

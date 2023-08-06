@@ -105,7 +105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: db64da463cbc0c84bbc13b6301d2c85e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: bd90a33065041f34ab0f2f0c652f6d05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: db64da463cbc0c84bbc13b6301d2c85e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 5320221328089095784}
   - component: {fileID: 4600151283529179660}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: PlayerTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,6 +428,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5140911678226367007
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,12 +538,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnMoveHull:
+  OnMoveBody:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2254540448818785168}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: HandleMoveBody
+      - m_Target: {fileID: 2637302322653994870}
+        m_TargetAssemblyTypeName: TankMovement, Assembly-CSharp
+        m_MethodName: Move
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -550,12 +553,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnMoveWeapon:
+  OnMoveTurret:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2254540448818785168}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: HandleMoveTurret
+      - m_Target: {fileID: 8047129623751985423}
+        m_TargetAssemblyTypeName: TurretAim, Assembly-CSharp
+        m_MethodName: Aim
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -732,7 +735,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 64622a79a555d5947b7241c619ff9f09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
