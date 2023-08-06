@@ -9,7 +9,9 @@ public class BaseBehavior : MonoBehaviour
     private GameObject flag;
     [SerializeField] private bool isPlayerBase = false;
 
-    public UnityEvent<Collider2D> OnHit = new UnityEvent<Collider2D>();
+    private Collider2D collider;
+
+    public UnityEvent<GameObject> OnHit = new UnityEvent<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,8 @@ public class BaseBehavior : MonoBehaviour
         }
 
         core.SetActive(true);
+
+        collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -42,7 +46,7 @@ public class BaseBehavior : MonoBehaviour
 
         if (isPlayerBase)
         {
-            if (collision.name == "EnemyTank")
+            if (collision.gameObject.transform.parent.tag == "Enemy")
             {
                 core.SetActive(false);
                 flag.SetActive(true);
@@ -50,13 +54,15 @@ public class BaseBehavior : MonoBehaviour
         }
         else
         {
-            if (collision.name == "PlayerTank")
+            if (collision.gameObject.transform.parent.tag == "Player")
             {
                 core.SetActive(false);
                 flag.SetActive(true);
             }
         }
 
-        OnHit.Invoke(collision);
+        collider.enabled = false;
+
+        OnHit.Invoke(this.gameObject);
     }
 }

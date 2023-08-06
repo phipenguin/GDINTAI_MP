@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 5320221328089095784}
   - component: {fileID: 4600151283529179660}
   m_Layer: 0
-  m_Name: PlayerTank
+  m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763376b09b6e84142b7d79bb0f5cd0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  moveSpeed: 200
   bodyRotationSpeed: 150
   movement: {x: 0, y: 0}
 --- !u!1 &8254280855673695887
