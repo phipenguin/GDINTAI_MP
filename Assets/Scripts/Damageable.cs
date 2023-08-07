@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
-    public int maxHP = 1;
+    public int maxHP = 3;
     [SerializeField] private int currentHP;
 
     public int Health
@@ -18,17 +18,34 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    public UnityEvent OnHit, OnDead;
+    public UnityEvent OnHit;
+    public UnityEvent<GameObject> OnDead;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHP = maxHP;
+        Health = maxHP;
+    }
+
+    void Update()
+    {
+        if (Health <= 0)
+        {
+            GameManager.Instance.UpdateValues(this.gameObject);
+            Dead();
+        }
     }
 
     public void Hit()
     {
-        currentHP = 0;
+        Health--;
         OnHit.Invoke();
+    }
+
+    public void Dead()
+    {
+        OnDead.Invoke(this.gameObject);
+
+        Health = maxHP;
     }
 }

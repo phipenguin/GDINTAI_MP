@@ -7,9 +7,11 @@ public class BaseBehavior : MonoBehaviour
 {
     private GameObject core;
     private GameObject flag;
+    public GameObject tank;
+    private GameObject spawnPoint;
     [SerializeField] private bool isPlayerBase = false;
 
-    public UnityEvent<Collider2D> OnHit = new UnityEvent<Collider2D>();
+    private Collider2D collider;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +27,14 @@ public class BaseBehavior : MonoBehaviour
                 core = this.gameObject.transform.GetChild(i).gameObject;
             else if (!isPlayerBase && this.gameObject.transform.GetChild(i).name == "PlayerFlag")
                 flag = this.gameObject.transform.GetChild(i).gameObject;
+
+            if (this.gameObject.transform.GetChild(i).tag == "Respawn")
+                spawnPoint = this.gameObject.transform.GetChild(i).gameObject;
         }
 
         core.SetActive(true);
+
+        collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -42,7 +49,7 @@ public class BaseBehavior : MonoBehaviour
 
         if (isPlayerBase)
         {
-            if (collision.name == "EnemyTank")
+            if (collision.gameObject.transform.parent.tag == "Enemy")
             {
                 core.SetActive(false);
                 flag.SetActive(true);
@@ -50,13 +57,21 @@ public class BaseBehavior : MonoBehaviour
         }
         else
         {
-            if (collision.name == "PlayerTank")
+            if (collision.gameObject.transform.parent.tag == "Player")
             {
                 core.SetActive(false);
                 flag.SetActive(true);
             }
         }
 
-        OnHit.Invoke(collision);
+        collider.enabled = false;
+
+        GameManager.Instance.UpdateValues(this.gameObject);
+    }
+
+    public void RespawnTank()
+    {
+        tank.transform.position = spawnPoint.transform.position;
+        tank.transform.rotation = Quaternion.identity;
     }
 }

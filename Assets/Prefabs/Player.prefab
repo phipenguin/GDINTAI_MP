@@ -299,8 +299,8 @@ GameObject:
   - component: {fileID: 5320221328089095784}
   - component: {fileID: 4600151283529179660}
   m_Layer: 0
-  m_Name: PlayerTank
-  m_TagString: Untagged
+  m_Name: Tank
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,15 +411,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d9a71664209854f8239f370ee66436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1
+  maxHP: 3
   currentHP: 0
   OnHit:
     m_PersistentCalls:
+      m_Calls: []
+  OnDead:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5360927992258086726}
-        m_TargetAssemblyTypeName: DestroyUtil, Assembly-CSharp
-        m_MethodName: DestroyHelper
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: UpdateValues
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -428,9 +431,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnDead:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5140911678226367007
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763376b09b6e84142b7d79bb0f5cd0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  moveSpeed: 200
   bodyRotationSpeed: 150
   movement: {x: 0, y: 0}
 --- !u!1 &8254280855673695887
