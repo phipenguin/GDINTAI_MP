@@ -15960,10 +15960,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2637302322653994870, guid: 408086a10b2b7794cb234f8511c6b43b, type: 3}
-      propertyPath: moveSpeed
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 4600151283529179660, guid: 408086a10b2b7794cb234f8511c6b43b, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.size
       value: 1
