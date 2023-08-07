@@ -31,6 +31,7 @@ public class Damageable : MonoBehaviour
     {
         if (Health <= 0)
         {
+            GameManager.Instance.UpdateValues(this.gameObject);
             Dead();
         }
     }
@@ -44,5 +45,7 @@ public class Damageable : MonoBehaviour
     public void Dead()
     {
         OnDead.Invoke(this.gameObject);
+
+        Health = maxHP;
     }
 }

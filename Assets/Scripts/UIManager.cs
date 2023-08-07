@@ -9,24 +9,26 @@ public class UIManager : MonoBehaviour
     public Text playerKillsText;
     public Text enemyKillsText;
     public Text timer;
+    public GameObject gameoverScreen;
+    public Text winText;
 
     public float time;
 
-    private void Awake()
+    void Start()
     {
-        
+        HideGameOver();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (time > 0)
+        if (!GameManager.Instance.isTimesUp && GameManager.Instance.win == 0)
         {
-            time -= Time.fixedDeltaTime;
-            UpdateTimer(time);
+            UpdateTimer(GameManager.Instance.time);
+            UpdateKills();
         }
         else
         {
-            time = 0;
+            ShowGameOver(GameManager.Instance.win);
         }
     }
 
@@ -44,5 +46,38 @@ public class UIManager : MonoBehaviour
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
         timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void ShowGameOver(int win)
+    {
+        gameoverScreen.SetActive(true);
+
+        if (win == 1)
+        {
+            winText.text = "Player Wins";
+        }
+        else if (win == 2)
+        {
+            winText.text = "AI Wins";
+        }
+        else if (win == 3)
+        {
+            winText.text = "Draw";
+        }
+    }
+
+    public void HideGameOver()
+    {
+        gameoverScreen.SetActive(false);
+    }
+
+    public void CallReloadScene()
+    {
+        GameManager.Instance.ReloadLevel();
+    }
+
+    public void CallMainMenuScene()
+    {
+        GameManager.Instance.LoadMainMenu();
     }
 }
