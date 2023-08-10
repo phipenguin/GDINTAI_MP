@@ -93,6 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5759606013159313655}
+  - component: {fileID: 1686360521499905891}
+  - component: {fileID: 2974849107431019858}
+  - component: {fileID: 6496034210962228482}
   - component: {fileID: 3413223712162116097}
   m_Layer: 0
   m_Name: Enemy
@@ -117,6 +120,50 @@ Transform:
   - {fileID: 5954262685776522279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686360521499905891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158037969556083016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3952d7272605df0478c8c3890846e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootBehaviour: {fileID: 2974849107431019858}
+  patrolBehaviour: {fileID: 6496034210962228482}
+  tank: {fileID: 0}
+  detector: {fileID: 0}
+--- !u!114 &2974849107431019858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158037969556083016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69d12d5f096baa4a98bd1bdde253597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldOfVisionForShooting: 60
+--- !u!114 &6496034210962228482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158037969556083016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13bbe385487080541ac026080192f3cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolDelay: 3
+  randomDirection: {x: 0, y: 0}
+  currentPatrolDelay: 0
 --- !u!114 &3413223712162116097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,9 +619,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763376b09b6e84142b7d79bb0f5cd0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  moveSpeed: 250
   bodyRotationSpeed: 150
   movement: {x: 0, y: 0}
+--- !u!1 &8829289875374769042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3976953424125596249}
+  - component: {fileID: 4649851981053377068}
+  m_Layer: 0
+  m_Name: AIDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3976953424125596249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829289875374769042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5954262685776522279}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4649851981053377068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829289875374769042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a50fbbc68f12c41b179fa3e16438fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 7
+  detectionCheckDelay: 0.1
+  target: {fileID: 0}
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  visibilityLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  <TargetVisible>k__BackingField: 0
 --- !u!1 &8876716823384427904
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,8 +687,9 @@ GameObject:
   - component: {fileID: 5954262685776522279}
   - component: {fileID: 7806016284037640239}
   - component: {fileID: 2616668779933391970}
+  - component: {fileID: 6163830180807541509}
   - component: {fileID: 5838158770256605252}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -609,6 +711,7 @@ Transform:
   m_Children:
   - {fileID: 546002621233636385}
   - {fileID: 7356823182461738180}
+  - {fileID: 3976953424125596249}
   m_Father: {fileID: 5759606013159313655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7806016284037640239
@@ -673,6 +776,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.7, y: 2.4}
   m_Direction: 0
+--- !u!114 &6163830180807541509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876716823384427904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fd7e74996a5204c8e624899f42b358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankMovement: {fileID: 7455385367093775349}
+  turretAim: {fileID: 1966335141886246469}
+  turretBehavior: {fileID: 7694932095252978072}
 --- !u!114 &5838158770256605252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,18 +811,6 @@ MonoBehaviour:
   OnDead:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: UpdateValues
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Respawn, Assembly-CSharp
         m_MethodName: RespawnTank

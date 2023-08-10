@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7682173173577972059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3877418505166141856}
   - component: {fileID: 8212895380452210677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7402259576770876045}
   - component: {fileID: 5982844119985794745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3959482418305804845}
   - component: {fileID: 4714715239328804019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 2254540448818785168}
   - component: {fileID: 5320221328089095784}
   - component: {fileID: 4600151283529179660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -420,9 +420,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: UpdateValues
-        m_Mode: 0
+        m_TargetAssemblyTypeName: Respawn, Assembly-CSharp
+        m_MethodName: RespawnTank
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -441,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5996392632791766670}
   - component: {fileID: 8047129623751985423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 8621292607602112805}
   - component: {fileID: 7637936578951269820}
   - component: {fileID: 5360927992258086726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5491305804137689523}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9059882914064376565}
   - component: {fileID: 2637302322653994870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 6688205119252733231}
   - component: {fileID: 3402984397834944244}
   - component: {fileID: 4829335019495268228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
