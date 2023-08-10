@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -75,29 +76,38 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel1()
     {
+        ResetValues();
         SceneManager.LoadScene("Level1");
     }
 
     public void LoadLevel2()
     {
+        ResetValues();
         SceneManager.LoadScene("Level2");
     }
 
     public void LoadLevel3()
     {
+        ResetValues();
         SceneManager.LoadScene("Level3");
     }
 
     public void LoadMainMenu()
     {
+        ResetValues();
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ReloadLevel()
     {
         ResetValues();
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Destroy(this);
+        Application.Quit();
     }
 
     public void GameOver()
