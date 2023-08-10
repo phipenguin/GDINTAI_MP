@@ -41,14 +41,24 @@ public class AIPatrolPathBehavior : AIBehaviour
                 return;
             }
 
-            IEnumerator WaitCoroutine()
+            Vector2 direction2Go = currentPatrolTarget - (Vector2)tank.tankMovement.transform.position;
+            var dotProduct = Vector2.Dot(tank.tankMovement.transform.up, direction2Go.normalized);
+
+            if (dotProduct < 0.98f)
             {
-                yield return new WaitForSeconds(waitTime);
-                var nextPathPoint = patrolPath.GetNextPathPoint(currentIndex);
-                currentPatrolTarget = nextPathPoint.Position;
-                currentIndex = nextPathPoint.Index;
-                isWaiting = false;
+                var crossProduct = Vector3.Cross(tank.tankMovement.transform.up, direction2Go.normalized);
+                int rotationResult = crossProduct.z >= 0 ? -1 : 1;
+                tank.HandleMoveBody(new Vector2(rotationResult, 1));
             }
+        }
+
+        IEnumerator WaitCoroutine()
+        {
+            yield return new WaitForSeconds(waitTime);
+            var nextPathPoint = patrolPath.GetNextPathPoint(currentIndex);
+            currentPatrolTarget = nextPathPoint.Position;
+            currentIndex = nextPathPoint.Index;
+            isWaiting = false;
         }
     }
 }

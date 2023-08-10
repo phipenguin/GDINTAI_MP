@@ -40,7 +40,7 @@ public class PatrolPath : MonoBehaviour
     public PathPoint GetNextPathPoint(int index)
     {
         var newIndex = index + 1 >= patrolPoints.Count ? 0 : index + 1;
-        return new PathPoint { Index = index, Position = patrolPoints[index].position };
+        return new PathPoint { Index = newIndex, Position = patrolPoints[newIndex].position };
     }
 
     private void OnDrawGizmos()
